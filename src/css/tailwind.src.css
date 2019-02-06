@@ -11,7 +11,7 @@
 }
 
 .header {
-  @apply flex items-center justify-between flex-wrap bg-blue-darkest p-6;
+  @apply flex items-center justify-between flex-wrap p-6 ;
 }
 
 .header-title {
@@ -29,24 +29,230 @@
 /** Content section **/
 
 .content-wrapper {
-  @apply px-4 pt-4 flex-1 overflow-y-scroll;
+  @apply px-4 flex-1 overflow-y-scroll pl-0 ;
 }
 
 .content-text {
   @apply text-grey-dark;
 }
 
-.body
-{
-  background: #000;
-  overflow: hidden;
+.container {
+  padding: 0;
+  margin: 0;
 }
 
-.canvas
-{
+.space {
+  width: 100vw;
+  height: 100vh;
+  background-color: #2b2b2b;
+  position: relative;
+}
+
+.stars {
   width: 100%;
   height: 100%;
+  background: url(http://www.script-tutorials.com/demos/360/images/stars.png);
+  animation: shine 1s infinite 0s alternate;
+}
+
+.earth {
+  z-index: 2;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background-color: #0077be;
   position: absolute;
-  left: 0;
-  top: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(10deg);
+  overflow: hidden;
+}
+.earth__shadow {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  position: absolute;
+  top: -25px;
+  left: -65px;
+  background-image: linear-gradient(#e6e6e6 15%, #0097f1 15%, #0097f1 85%, #e6e6e6 85%);
+}
+.earth__land--1 {
+  width: 50px;
+  height: 20px;
+  background-color: aquamarine;
+  border-radius: 10px;
+  position: absolute;
+  left: 0px;
+  top: 20px;
+  animation: landMotion 10s linear 0s infinite;
+}
+.earth__land--2 {
+  width: 100px;
+  height: 20px;
+  background-color: aquamarine;
+  border-radius: 10px;
+  position: absolute;
+  left: 50px;
+  top: 90px;
+  animation: landMotion 10s linear 0s infinite;
+}
+.earth__land--join {
+  width: 20px;
+  height: 20px;
+  background-color: aquamarine;
+  position: absolute;
+  left: 110px;
+  top: 100px;
+  animation: landMotion 10s linear 0s infinite;
+}
+.earth__land--3 {
+  width: 70px;
+  height: 20px;
+  background-color: aquamarine;
+  border-radius: 10px;
+  position: absolute;
+  left: 100px;
+  top: 115px;
+  animation: landMotion 10s linear 0s infinite;
+}
+.earth__land--4 {
+  width: 70px;
+  height: 20px;
+  background-color: aquamarine;
+  border-radius: 10px;
+  position: absolute;
+  left: 60px;
+  top: 50px;
+  animation: landMotion 10s linear 0s infinite;
+}
+.earth__land--5 {
+  width: 60px;
+  height: 20px;
+  background-color: aquamarine;
+  border-radius: 10px;
+  position: absolute;
+  left: 120px;
+  top: 150px;
+  animation: landMotion 10s linear 0s infinite;
+}
+.earth__cloud--1 {
+  z-index: 5;
+  width: 50px;
+  height: 13px;
+  background-color: white;
+  position: absolute;
+  top: 50px;
+  left: 20px;
+  border-radius: 15px;
+  animation: landMotion 7s linear 0s infinite reverse;
+}
+.earth__cloud--2 {
+  z-index: 5;
+  width: 30px;
+  height: 13px;
+  background-color: white;
+  position: absolute;
+  top: 150px;
+  left: 120px;
+  border-radius: 15px;
+  animation: landMotion 8s linear 0s infinite reverse;
+}
+.earth__cloud--3 {
+  z-index: 5;
+  width: 45px;
+  height: 13px;
+  background-color: white;
+  position: absolute;
+  top: 50%;
+  left: 40px;
+  border-radius: 15px;
+  animation: landMotion 7s linear 0s infinite reverse;
+}
+
+.moon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #b7baa7;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  overflow: hidden;
+  animation: moonRotation 5s linear 0s infinite forwards;
+}
+.moon__shadow {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background-color: #e6e8d2;
+  position: absolute;
+  top: -5px;
+  left: -17px;
+}
+.moon__maria--1 {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  position: absolute;
+  top: 5px;
+  left: 20px;
+  background-color: #cbceb6;
+}
+.moon__maria--2 {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  position: absolute;
+  top: 25px;
+  left: 35px;
+  background-color: #cbceb6;
+}
+.moon__maria--3 {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  position: absolute;
+  top: 50px;
+  left: 17px;
+  background-color: #cbceb6;
+}
+
+@keyframes moonRotation {
+  0% {
+    transform: translate(-300px, -50%) rotate(10deg) scale(1);
+    z-index: 1;
+  }
+  25% {
+    transform: translate(-40px, -50%) rotate(10deg) scale(0.9);
+  }
+  50% {
+    transform: translate(260px, -50%) rotate(10deg) scale(1);
+    z-index: 1;
+  }
+  51% {
+    z-index: 6;
+  }
+  75% {
+    transform: translate(-40px, -50%) rotate(10deg) scale(1.15);
+  }
+  100% {
+    transform: translate(-300px, -50%) rotate(10deg) scale(1);
+    z-index: 1;
+  }
+}
+@keyframes landMotion {
+  0% {
+    transform: translateX(-200px);
+  }
+  100% {
+    transform: translateX(200px);
+  }
+}
+@keyframes shine {
+  0% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
 }

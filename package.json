@@ -17,6 +17,7 @@
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-router-dom": "^4.3.1",
+    "react-simple-animate": "^2.6.2",
     "react-undraw-illustrations": "^2.0.3"
   },
   "devDependencies": {
