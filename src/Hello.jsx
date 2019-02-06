@@ -2,7 +2,10 @@ import React from "react";
 
 const Hello = () => {
   return(
-    <div>Hello World</div>
+    <div className="body">
+      <div>Hello World</div>
+     <canvas className="canvas"></canvas>
+    </div>
   )
 }
 

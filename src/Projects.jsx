@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import axios from "axios"
+import axios from "axios";
+import ProjectCard from "./ProjectCard";
 
 class Projects extends Component {
   constructor() {
@@ -10,7 +11,7 @@ class Projects extends Component {
   }
 
   componentDidMount() {
-    axios.get('./src/data.projects.json')
+    axios.get('./src/data/projects.json')
     .then(response => {
       this.setState({
         projects: response.data
@@ -25,8 +26,8 @@ class Projects extends Component {
     if (projects.length > 0) {
       projectsList = projects.map(project => {
         return (
-          <div className="project.id">
-            <h3>{project.name}</h3>
+          <div key={project.id} className="min-h-900 my-1 px-1 md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3 float-left">
+            <ProjectCard project={project} />
           </div>
         )
       })
