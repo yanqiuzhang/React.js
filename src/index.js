@@ -5,6 +5,7 @@ import Footer from "./Footer";
 import Header from "./Header";
 import About from "./About";
 import Projects from "./Projects"
+import Cv from "./Cv";
 import './css/tailwind.css';
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 
@@ -18,6 +19,7 @@ const App = () => {
               <Route exact path='/' component={Hello}></Route>
               <Route exact path='/about' component={About}></Route>
               <Route exact path='/projects' component={Projects}></Route>
+              <Route exact path='/cv' component={Cv}> </Route>
             </Switch>
           </div>
           <Footer />
